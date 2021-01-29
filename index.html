@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    :root {
+        --h: 0;
+        --s: 0%;
+        --l: 89%;
+        --more: 7%;
+        --less: 5%;
+        --color: hsl(var(--h), var(--s), var(--l));
+        --high-l: hsl(var(--h), var(--s), calc(var(--l) + var(--more)));
+        --low-l: hsl(var(--h), var(--s), calc(var(--l) + var(--less)));
+        --high-s: hsl(var(--h), var(--s), calc(var(--l) - var(--more)));
+        --low-s: hsl(var(--h), var(--s), calc(var(--l) - var(--less)));
+    }
+
+/* -------------------------- */
+    * {
+        background: var(--color);
+    }
+    body {
+        padding: 90px;
+    }
+    div {
+        width: 300px;
+        height: 300px;
+        border-radius: 30px;
+    }
+    .on {
+        box-shadow: 7px 7px 29px var(--high-s), -7px -7px 29px var(--high-l);
+    }
+    .in {
+        box-shadow: inset 7px 7px 29px var(--high-s), inset -7px -7px 29px var(--high-l);
+    }
+    .radian {
+        background: linear-gradient(to bottom right, var(--low-s), var(--low-l));
+    }
+</style>
+<body>
+    <div class="on">
+        <div class="radian"></div>
+    </div>
+</body>
+</html>
